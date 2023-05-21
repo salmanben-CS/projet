@@ -3,10 +3,14 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+
 #define MAX_COMMAND_LENGTH 100
+#define MAX_ARGUMENTS 10
+
 /**
- * main - Write a UNIX command line interpreter.
- * Return:0
+ * main - Simple shell program that handles command lines with arguments.
+ *
+ * Return: Always 0.
  */
 int main(void)
 {
@@ -23,25 +27,28 @@ pid_t pid;
 		}
 
 		command[strcspn(command, "\n")] = '\0';
-
 pid = fork();
 		if (pid < 0)
 		{
-
 			perror("fork");
 			exit(EXIT_FAILURE);
 		}
 
 		if (pid == 0)
 		{
-			char *args[2];
+			char *arguments[MAX_ARGUMENTS];
+			char *token;
+			int arg_count = 0;
 
-			args[0] = command;
+			token = strtok(command, " ");
+			while (token != NULL && arg_count < MAX_ARGUMENTS - 1)
+			{
+				arguments[arg_count++] = token;
+				token = strtok(NULL, " ");
+			}
+			arguments[arg_count] = NULL;
 
-args[1] = NULL;
-
-			execve(command, args, NULL);
-
+			execvp(arguments[0], arguments);
 
 			printf("Command not found: %s\n", command);
 			exit(EXIT_FAILURE);
