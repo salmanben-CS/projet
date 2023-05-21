@@ -1,64 +1,58 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
+#include "header_shell.h"
 
 #define MAX_COMMAND_LENGTH 100
 #define MAX_ARGUMENTS 10
 
 /**
- * main - Simple shell program that handles command lines with arguments.
- *
- * Return: Always 0.
+ * shell - Simple shell program that handles command lines with arguments.
  */
-int main(void)
+void shell(void)
 {
-	char command[MAX_COMMAND_LENGTH];
-pid_t pid;
-	while (1)
-	{
-		printf("$ ");
+    char command[MAX_COMMAND_LENGTH];
+    pid_t pid;
 
-		if (fgets(command, sizeof(command), stdin) == NULL)
-		{
-			printf("\n");
-			break;
-		}
+    while (1)
+    {
+        printf("$ ");
 
-		command[strcspn(command, "\n")] = '\0';
-pid = fork();
-		if (pid < 0)
-		{
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
+        if (fgets(command, sizeof(command), stdin) == NULL)
+        {
+            printf("\n");
+            break;
+        }
 
-		if (pid == 0)
-		{
-			char *arguments[MAX_ARGUMENTS];
-			char *token;
-			int arg_count = 0;
+        command[strcspn(command, "\n")] = '\0';
+        pid = fork();
 
-			token = strtok(command, " ");
-			while (token != NULL && arg_count < MAX_ARGUMENTS - 1)
-			{
-				arguments[arg_count++] = token;
-				token = strtok(NULL, " ");
-			}
-			arguments[arg_count] = NULL;
+        if (pid < 0)
+        {
+            perror("fork");
+            exit(EXIT_FAILURE);
+        }
 
-			execvp(arguments[0], arguments);
+        if (pid == 0)
+        {
+            char *arguments[MAX_ARGUMENTS];
+            char *token;
+            int arg_count = 0;
 
-			printf("Command not found: %s\n", command);
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			waitpid(pid, NULL, 0);
-		}
-	}
+            token = strtok(command, " ");
+            while (token != NULL && arg_count < MAX_ARGUMENTS - 1)
+            {
+                arguments[arg_count++] = token;
+                token = strtok(NULL, " ");
+            }
+            arguments[arg_count] = NULL;
 
-	return (0);
+            execvp(arguments[0], arguments);
+
+            printf("Command not found: %s\n", command);
+            exit(EXIT_FAILURE);
+        }
+        else
+        {
+            waitpid(pid, NULL, 0);
+        }
+    }
 }
 

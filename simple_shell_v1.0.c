@@ -1,57 +1,44 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/wait.h>
-#define MAX_COMMAND_LENGTH 100
+#include "header_shell.h"
+
 /**
- * main - Write a UNIX command line interpreter.
- * Return:0
+ * displayPrompt - Display the shell prompt
+ * Return:void
  */
-int main(void)
+void displayPrompt(void)
 {
-	char command[MAX_COMMAND_LENGTH];
-pid_t pid;
-	while (1)
-	{
-		printf("$ ");
+printf("$ ");
+fflush(stdout);
+}
 
-		if (fgets(command, sizeof(command), stdin) == NULL)
-		{
-			printf("\n");
-			break;
-		}
+/**
+ * executeCommand - Execute the given command
+ * @command: The command to execute
+ * Return:void
+ */
+void executeCommand(char *command)
+{
+pid_t pid = fork();
 
-		command[strcspn(command, "\n")] = '\0';
+if (pid < 0)
+{
+perror("fork");
+exit(EXIT_FAILURE);
+}
 
-pid = fork();
-		if (pid < 0)
-		{
-
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
-
-		if (pid == 0)
-		{
-			char *args[2];
-
-			args[0] = command;
-
+if (pid == 0)
+{
+char *args[2];
+args[0] = command;
 args[1] = NULL;
 
-			execve(command, args, NULL);
+execve(command, args, NULL);
 
-
-			printf("Command not found: %s\n", command);
-			exit(EXIT_FAILURE);
-		}
-		else
-		{
-			waitpid(pid, NULL, 0);
-		}
-	}
-
-	return (0);
+printf("Command not found: %s\n", command);
+exit(EXIT_FAILURE);
+}
+else
+{
+waitpid(pid, NULL, 0);
+}
 }
 

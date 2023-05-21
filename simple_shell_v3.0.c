@@ -1,50 +1,33 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/wait.h>
-#define BUFFER_SIZE 1024
+#include "header_shell.h"
 /**
- * main - Handle the PATH
- * Return:0
+ * executeCommand - fnc desc
+ * @command:parameter
+ * Return:void
  */
-int main(void)
+void executeCommand(char *command)
 {
-char buffer[BUFFER_SIZE];
-char *args[64];
-int status = 1;
-int length = strlen(buffer);
-char *token = strtok(buffer, " ");
-int i = 0;
-while (status)
-{
-printf("$ ");
-fgets(buffer, BUFFER_SIZE, stdin);
+pid_t pid = fork();
 
-if (buffer[length - 1] == '\n')
+if (pid < 0)
 {
-buffer[length - 1] = '\0';
+perror("fork");
+exit(EXIT_FAILURE);
 }
 
-while (token != NULL)
+if (pid == 0)
 {
-args[i] = token;
-token = strtok(NULL, " ");
-i++;
-}
-args[i] = NULL;
+char *args[2];
+args[0] = command;
+args[1] = NULL;
 
-if (fork() == 0)
-{
-execvp(args[0], args);
+execve(command, args, NULL);
+
+printf("Command not found: %s\n", command);
 exit(EXIT_FAILURE);
 }
 else
 {
-wait(&status);
+waitpid(pid, NULL, 0);
 }
-}
-
-return (0);
 }
 
