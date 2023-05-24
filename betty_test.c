@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "header_shell.h"
 /**
  * _strncat - concatenates two strings.
  * @dest:the first str
