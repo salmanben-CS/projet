@@ -1,22 +1,17 @@
-#include <stdio.h>
 #include "header_shell.h"
 /**
- * _strncat - concatenates two strings.
- * @dest:the first str
- * @src:the second string
- * @n:number of bytes
- * Return:returns pointer points on the new string
+ * _digit - a function that checks for a digit (0 through 9)
+ * @c: digit to be checked
+ * Return: 1 if c is uppercase 0 otherwise
  */
-char *_strncat(char *dest, char *src, int n)
+int _digit(int c)
 {
-int i, j;
-for (i = 0; dest[i] != '\0'; i++)
-;
-for (j = 0; src[j] != '\0' && j < n; j++)
-{
-dest[i] = src[j];
-i++;
-}
-dest[i] = '\0';
-return (dest);
+	if (c >= '0' && c <= '9')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
