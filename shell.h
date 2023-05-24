@@ -1,5 +1,5 @@
-#ifndef HEADER_SHELL_H
-#define HEADER_SHELL_H
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,5 +22,5 @@ int digit(int c);
 int _exit(info_t *info);
 int _cd(info_t *info);
 int _help(info_t *info);
-#endif /* HEADER_SHELL_H */
+#endif /* SHELL_H */
 
