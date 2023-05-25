@@ -23,4 +23,3 @@ int _exit(info_t *info);
 int _cd(info_t *info);
 int _help(info_t *info);
 #endif /* HEADER_SHELL_H */
-
