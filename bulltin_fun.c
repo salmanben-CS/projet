@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * exit_bul - Exit Statue Shell
+ * exit_bul - Exit Statue Shell Characteres
  * @cmd: Parsed Command
  * @input: User Input
  * @argv:Program Name
@@ -36,7 +36,7 @@ void  exit_bul(char **cmd, char *input, char **argv, int c)
 
 
 /**
- * change_dir - Change Dirctorie
+ * change_directory - Change Dir
  * @cmd: Parsed Command
  * @er: Statue Last Command Excuted
  * Return: 0 Succes 1 Failed (For Old Pwd Always 0 Case No Old PWD)
@@ -69,7 +69,7 @@ int change_dir(char **cmd, __attribute__((unused))int er)
 	return (0);
 }
 /**
- * dis_env - Display Enviroment Variable
+ * dis_env - Display Enviroment Variable with shell
  * @cmd:Parsed Command
  * @er:Statue of Last command Excuted
  * Return:Always 0
@@ -88,7 +88,7 @@ size_t i;
 	return (0);
 }
 /**
- * display_help - Displaying Help For Builtin
+ * display_help - Displaying Help For Builtin with shell
  * @cmd:Parsed Command
  * @er: Statue Of Last Command Excuted
  * Return: 0 Succes -1 Fail
@@ -117,7 +117,7 @@ int display_help(char **cmd, __attribute__((unused))int er)
 	return (0);
 }
 /**
- * echo_bul - Excute Echo Cases
+ * echo_bul - Excute Echo Cases with shell
  * @st:Statue Of Last Command Excuted
  * @cmd: Parsed Command
  * Return: Always 0 Or Excute Normal Echo
