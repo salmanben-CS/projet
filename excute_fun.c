@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * handle_builtin - Handle Builtin Command
+ * handle_builtin - Handle Builtin Command - handle
  * @cmd: Parsed Command
  * @er:statue of last Excute
  * Return: -1 Fail 0 Succes (Return :Excute Builtin)
@@ -30,7 +30,7 @@ int handle_builtin(char **cmd, int er)
 	return (-1);
 }
 /**
- * check_cmd - Excute Simple Shell Command (Fork,Wait,Excute)
+ * check_cmd - Excute Simple Shell Command
  *
  * @cmd:Parsed Command
  * @input: User Input
@@ -75,7 +75,7 @@ int check_cmd(char **cmd, char *input, int c, char **argv)
 	return (0);
 }
 /**
- * signal_to_handel - Handle ^C
+ * signal_to_handel - Handle copy
  * @sig:Captured Signal
  * Return: Void
  */
