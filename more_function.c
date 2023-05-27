@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * _strcpy - Copie Source To Destination Char
+ * _strcpy - Copy Source
  * @dest:Destination
  * @src:Source
  * Return: Copie Of Char *
@@ -19,7 +19,7 @@ dest[i] = '\0';
 return (dest);
 }
 /**
- * _strcat - Concat Two String
+ * _strcat - Concat Two String and run
  * @dest:First String
  * @src:Second String
  * Return:First String + Second String Char *
@@ -43,7 +43,7 @@ char *_strcat(char *dest, char *src)
 	return (s);
 }
 /**
- * _strchr - Locate Charactere In String
+ * _strchr - Locate Charactere
  * @s:String Search In
  * @c:Char To Search For
  * Return: Pointer To Char*
@@ -62,7 +62,7 @@ char *_strchr(char *s, char c)
 return (s);
 }
 /**
- * _strncmp - Compare Amount (n) Of Characters Of Two Strings.
+ * _strncmp - Compare Amount (n) Of Two Strings.
  * @s1: A String.
  * @s2: A String.
  * @n: Amount Of Characters To Compare.
@@ -85,7 +85,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	return (0);
 }
 /**
- * _strdup - Duplicate A String
+ * _strdup - Duplicate A String and run
  * @str:String
  * Return: Duplicate String Failed Null
  */
