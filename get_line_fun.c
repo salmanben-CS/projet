@@ -1,8 +1,7 @@
-
 #include "shell.h"
 
 /**
-* _getline - Read The Input By User From Stdin
+* _getline - Read The Input
 * Return: Input
 */
 char *_getline()
@@ -47,7 +46,7 @@ char *buff = malloc(buffsize);
 }
 
 /**
- * hashtag_handle - remove everything after #
+ * hashtag_handle - remove everything after # good
  * @buff: input;
  * Return:void
  */
