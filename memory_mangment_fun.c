@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- **_realloc -  Reallocates A Memory Block Using Malloc And Free
+ **_realloc -  Reallocates A Memory Block
  *@ptr: Pointer
  *@old_size: Previous Size Of The Pointer
  *@new_size: New Size Of The Pointer
@@ -35,7 +35,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 
 }
 /**
- * free_all - Free Array Of Char Pointer And Char Pointer
+ * free_all - Free Array
  * @cmd:Array Pointer
  * @line:Char Pointer
  * Return: Void
@@ -66,7 +66,7 @@ char *_memcpy(char *dest, char *src, unsigned int n)
 	return (dest);
 }
 /**
- * fill_an_array - Fill An Array By Constant Byte
+ * fill_an_array - Fill An Array
  * @a:Void Pointer
  * @el: Int
  * @len:Length Int
@@ -86,7 +86,7 @@ void *fill_an_array(void *a, int el, unsigned int len)
 	return (a);
 }
 /**
- * _calloc -  Allocates Memory For An Array, Using Malloc.
+ * _calloc -  Allocates Memory For An Array
  * @size: Size
  * Return: Void Pointer
  */
