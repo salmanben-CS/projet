@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * prompt - Display Shell Prompt
+ * prompt - Display Shell Prompt and run
  */
 void prompt(void)
 {
 	PRINTER("$ ");
 }
 /**
- * print_error - Display Error Based on Command and How Many Time Shell Looped
+ * print_error - Display Error Based
  * @input:User Input
  * @counter:Simple Shell Count Loop
  * @argv:Program Name
