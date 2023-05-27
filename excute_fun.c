@@ -7,7 +7,7 @@
  * Return: -1 Fail 0 Succes (Return :Excute Builtin)
  */
 
-int handle_builtin(char **cmd, int er);
+int handle_builtin(char **cmd, int er)
 {
 	 bul_t bil[] = {
 		{"cd", change_dir},
