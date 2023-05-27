@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _strcmp - Compare Two String
+ * _strcmp - Compare Two String start
  * @s1:String 1
  * @s2:String 2
  * Return: 0 If Identical Otherwise How Much Diffrent
@@ -45,7 +45,7 @@ return (0);
 }
 }
 /**
- * _itoa - Convert Integer To Char
+ * _itoa - Convert Integer > Char
  * @n: Int To Convert
  * Return: Char Pointer
  */
@@ -71,7 +71,7 @@ char *_itoa(unsigned int n)
 	return (s);
 }
 /**
- *  array_rev - Reverse Array
+ *  array_rev - Reverse Array and run
  * @arr:Array To Reverse
  * @len:Length Of Array
  * Return: Void(Reverse Array)
@@ -89,7 +89,7 @@ void array_rev(char *arr, int len)
 	}
 }
 /**
- * intlen - Determine Length Of Int
+ * intlen - Determine Length Of Int and run
  * @num: Given Int
  * Return: Length Of Int
  */
