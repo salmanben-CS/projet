@@ -38,7 +38,7 @@ i = 0;
 }
 
 /**
- * _strlen - lenght of string 
+ * _strlen - lenght of string
  * @s:char
  * Return:int
  */
