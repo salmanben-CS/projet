@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * path_cmd -  Search In $PATH For Excutable Command
+ * path_cmd -  Search In $PATH
  * @cmd: Parsed Input
  * Return: 1  Failure  0  Success.
  */
@@ -30,7 +30,7 @@ int path_cmd(char **cmd)
 	return (1);
 }
 /**
- * build - Build Command
+ * build - Build Command and execute
  * @token: Excutable Command
  * @value: Dirctory Conatining Command
  *
@@ -57,7 +57,7 @@ char *build(char *token, char *value)
 	return (cmd);
 }
 /**
- * _getenv - Gets The Value Of Enviroment Variable By Name
+ * _getenv - Gets The Value Of Enviroment Variable
  * @name: Environment Variable Name
  * Return: The Value of the Environment Variable Else NULL.
  */
